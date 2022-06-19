@@ -1,3 +1,7 @@
+:root {
+  margin: 0;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -10,6 +14,30 @@ body {
   background-color: pink;
 }
 
-:root {
-  margin: 0;
+.songlist {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: lightpink;
+  display: block;
+  text-align: left;
+}
+
+.genrelist {
+  display: inline-block;
+  margin: 1rem;
+  border: 3px solid black;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: lightpink;
+  cursor: pointer;
+}
+
+.songname {
+  font-size: 30px;
+}
+
+.artistname {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
 }
