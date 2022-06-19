@@ -1,0 +1,15 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: pink;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+body {
+  background-color: pink;
+}
+
+:root {
+  margin: 0;
+}
