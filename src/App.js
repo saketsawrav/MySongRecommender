@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
-function App() {
+var musicDB = {
+  "Hip Hop": [
+    { name: "Eminem", song: "Lose Yourself" },
+    { name: "Coolio", song: "Gangster's Paradise" },
+    { name: "BigSean", song: "Friday Night Cypher" }
+  ],
+  "Psychadelic Rock": [
+    { name: "Pink Floyd", song: "Echoes" },
+    { name: "Pink Floyd", song: "Shine On You Crazy Diamond" },
+    { name: "Pink Floyd", song: "Echoes" }
+  ],
+  Rock: [
+    { name: "Freddie Mercury", song: "The Great Pretender" },
+    { name: "The Queens", song: "Bohemian Rapsody" },
+    { name: "Led Zepplin", song: "Stairway To Heaven" }
+  ]
+};
+
+export default function App() {
+  var musicList = Object.keys(musicDB);
+  const [clickCounter, setClickCounter] = useState("Hip Hop");
+
+  function onClickHandler(music) {
+    setClickCounter(music);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Song Recommender</h1>
+      <h2>Select Music Genre to see my Song recommendations!</h2>
+      <div>
+        {musicList.map((music) => (
+          <li className="genrelist" onClick={() => onClickHandler(music)}>
+            {music}
+          </li>
+        ))}
+      </div>
+      <div>
+        {musicDB[clickCounter].map((music) => (
+          <li className="songlist">
+            <div className="songname">{music.song}</div>
+            <div className="artistname">by {music.name}</div>
+          </li>
+        ))}
+      </div>
     </div>
   );
 }
-
-export default App;
